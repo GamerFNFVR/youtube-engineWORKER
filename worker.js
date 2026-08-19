@@ -7,16 +7,6 @@ export default {
       return handleMusicRequest(url, env);
     }
 
-    // Tab Icon Dependency Routing: Serve the base64 injector script dynamically to the browser
-    if (url.pathname === '/tabThumb.js') {
-      return new Response(getTabThumbScript(), {
-        headers: {
-          'Content-Type': 'application/javascript; charset=utf-8',
-          'Cache-Control': 'public, max-age=86400'
-        }
-      });
-    }
-
     // Main App Routing: Serve clean UI markup with provided CSS
     return new Response(getHTMLTemplate(), {
       headers: {
